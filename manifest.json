@@ -1,11 +1,11 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "BombWords",
     "description": "",
     "version": "1.0",
-    "web_accessible_resources": [
-        "./dictionary.csv"
-      ],
+    "web_accessible_resources": [{
+		"resources": ["./dictionary.csv"],
+		"matches": ["http://*/*", "https://*/*"]}],
     "content_scripts": [
         {
             "matches": [
@@ -28,5 +28,8 @@
     "background": {
         "service_worker": "background.js"
     },
-    "permissions": ["file:///*/"]
+	"host_permissions": ["*://*/*"],
+	"permissions": [
+    "storage"
+  ]
 }
